@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class VerificationFormSteps {
 
     @Step("Проверка открытия модального окна")
-    public void verifyModalAppears() {
+    public void verifyModalAppears(String textModal) {
         $(".modal-dialog").should(appear);
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text(textModal));
     }
 
     @Step("Проверка введенных значений")
