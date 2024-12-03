@@ -1,10 +1,13 @@
 package steps;
 
+import components.CalendarComponent;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class SetFormSteps {
+
+    CalendarComponent calendarComponent = new CalendarComponent();
 
     @Step("Ввести имя")
     public void setFirstName (String firstName) {
