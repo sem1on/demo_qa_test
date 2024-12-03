@@ -3,6 +3,7 @@ package steps;
 import components.CalendarComponent;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SetFormSteps {
@@ -32,6 +33,32 @@ public class SetFormSteps {
     @Step("Ввести адрес")
     public void setAddress(String address) {
         $("#currentAddress").setValue(address);
+    }
+
+    @Step("Ввести дату рождения")
+    public void setBDay(String day, String month, String year) {
+        $("#dateOfBirthInput").click();
+        calendarComponent.setDate(day, month, year);
+    }
+
+    @Step("Выбрать пол (Other)")
+    public void setGender() {
+        $("#gender-radio-2").parent().click();
+    }
+
+    @Step("Ввод предмета")
+    public void setSubject (String subject) {
+        $("#subjectsInput").setValue(subject).pressEnter();
+    }
+
+    @Step("Выбор хоббы")
+    public void setHobbies (String hobbies) {
+        $("#hobbiesWrapper").$(byText(hobbies)).click();
+    }
+
+    @Step("Добавление фото")
+    public void loadPhoto (String photoName) {
+        $("#uploadPicture").uploadFromClasspath(photoName);
     }
 
 }
