@@ -1,6 +1,7 @@
 package steps;
 
 import components.CalendarComponent;
+import components.SelectStateAndCityComponent;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class SetFormSteps {
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    SelectStateAndCityComponent selectStateAndCityComponent = new SelectStateAndCityComponent();
 
     @Step("Ввести имя")
     public void setFirstName (String firstName) {
@@ -59,6 +61,11 @@ public class SetFormSteps {
     @Step("Добавление фото")
     public void loadPhoto (String photoName) {
         $("#uploadPicture").uploadFromClasspath(photoName);
+    }
+
+    @Step("Выбор штата и города")
+    public void setStateCity (String state, String city) {
+        selectStateAndCityComponent.setStateCity(state, city);
     }
 
 }
