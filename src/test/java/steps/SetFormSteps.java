@@ -1,5 +1,6 @@
 package steps;
 
+import components.ButtonClickComponent;
 import components.CalendarComponent;
 import components.SelectStateAndCityComponent;
 import io.qameta.allure.Step;
@@ -11,6 +12,7 @@ public class SetFormSteps {
 
     CalendarComponent calendarComponent = new CalendarComponent();
     SelectStateAndCityComponent selectStateAndCityComponent = new SelectStateAndCityComponent();
+    ButtonClickComponent buttonClickComponent = new ButtonClickComponent();
 
     @Step("Ввести имя")
     public void setFirstName (String firstName) {
@@ -66,6 +68,11 @@ public class SetFormSteps {
     @Step("Выбор штата и города")
     public void setStateCity (String state, String city) {
         selectStateAndCityComponent.setStateCity(state, city);
+    }
+
+    @Step("Нажатие кнопки 'Добавить'")
+    public void buttonClick (String buttonId) {
+        buttonClickComponent.buttonClick(buttonId);
     }
 
 }
